@@ -25,9 +25,7 @@ body {
   height: 350px;
   border: 2px dashed #999;
   display: grid;
-  /* 4 kolumny po 150px = 600px */
   grid-template-columns: repeat(4, 150px);
-  /* 4 wiersze po 87.5px = 350px */
   grid-template-rows: repeat(4, 87.5px);
   position: relative;
 }
@@ -48,7 +46,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Napis na tablicy po ułożeniu wszystkich puzzli */
 #puzzle-board.win::after {
   content: "BRAWO! PUZZLE UŁOŻONE!";
   position: absolute;
