@@ -3,9 +3,9 @@ const msg: string = "Hello!";
 alert(msg);
 
 const styles = [
-    { name: "Style 1", file: "/style.1.css" },
-    { name: "Style 2", file: "/style.2.css" },
-    { name: "Style 3", file: "/style.3.css" }
+    { name: "Style 1", file: "style.1.css" },
+    { name: "Style 2", file: "style.2.css" },
+    { name: "Style 3", file: "style.3.css" }
 ];
 
 let currentLink: HTMLLinkElement | null = null;
