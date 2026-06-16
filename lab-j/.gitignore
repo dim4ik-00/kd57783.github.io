@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+.idea/
+.venv/
+
+# LibreOffice / MS Office temporary lock files
+.~lock.*#
+~$*
+
+# OS junk
+Thumbs.db
+.DS_Store

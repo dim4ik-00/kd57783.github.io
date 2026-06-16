@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}Comments List{% endblock %}
+{% block body_class %}index{% endblock %}
+
+{% block main %}
+    <h1>Comments List</h1>
+
+    <ul class="index-actions">
+        <li>
+            <a href="{{ url_for('create') }}">Create new</a>
+        </li>
+    </ul>
+
+    {% if not comments %}
+        <p>No comments yet.</p>
+    {% else %}
+        {% for comment in comments %}
+            <article class="post">
+                <header>
+                    <h2>
+                        <a href="{{ url_for('show', comment_id=comment.id) }}">
+                            {{ comment.author }}
+                        </a>
+                    </h2>
+                </header>
+
+                <p>{{ comment.content }}</p>
+
+                <ul class="action-list">
+                    <li><a href="{{ url_for('show', comment_id=comment.id) }}">Details</a></li>
+                    <li><a href="{{ url_for('edit', comment_id=comment.id) }}">Edit</a></li>
+                </ul>
+            </article>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

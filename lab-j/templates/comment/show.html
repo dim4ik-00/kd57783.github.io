@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ comment.author }}{% endblock %}
+{% block body_class %}show{% endblock %}
+
+{% block main %}
+    <h1>{{ comment.author }}</h1>
+
+    <article>{{ comment.content }}</article>
+
+    <ul class="action-list">
+        <li><a href="{{ url_for('index') }}">Back to list</a></li>
+        <li><a href="{{ url_for('edit', comment_id=comment.id) }}">Edit</a></li>
+        <li>
+            <form method="post"
+                  action="{{ url_for('delete', comment_id=comment.id) }}"
+                  onsubmit="return confirm('Delete comment?')">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    </ul>
+{% endblock %}

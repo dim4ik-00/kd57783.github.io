@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit comment{% endblock %}
+{% block body_class %}edit{% endblock %}
+
+{% block main %}
+    <h1>Edit comment</h1>
+
+    <form action="{{ url_for('edit', comment_id=comment.id) }}" method="post" class="edit-form">
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author"
+                   value="{{ comment.author }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea id="content" name="content" required>{{ comment.content }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label></label>
+            <input type="submit" value="Save">
+        </div>
+    </form>
+
+    <ul class="action-list">
+        <li><a href="{{ url_for('index') }}">Back to list</a></li>
+        <li>
+            <form method="post"
+                  action="{{ url_for('delete', comment_id=comment.id) }}"
+                  onsubmit="return confirm('Delete comment?')">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    </ul>
+{% endblock %}
