@@ -1,37 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Post index{% endblock %}
+{% block title %}Lista postów{% endblock %}
 
 {% block body %}
-    <h1>Post index</h1>
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+        <h1 class="page-heading mb-0">Lista postów</h1>
+        <a class="btn btn-brand" href="{{ path('app_post_new') }}">Dodaj nową</a>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Subject</th>
-                <th>Content</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for post in posts %}
-            <tr>
-                <td>{{ post.id }}</td>
-                <td>{{ post.subject }}</td>
-                <td>{{ post.content }}</td>
-                <td>
-                    <a href="{{ path('app_post_show', {'id': post.id}) }}">show</a>
-                    <a href="{{ path('app_post_edit', {'id': post.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_post_new') }}">Create new</a>
+    <div class="table-responsive bg-white border rounded shadow-sm p-2">
+        <table class="table table-bordered align-middle post-table mb-0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Temat</th>
+                    <th>Treść</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.subject }}</td>
+                    <td>{{ post.content }}</td>
+                    <td class="text-nowrap">
+                        <a class="btn btn-sm btn-outline-danger" href="{{ path('app_post_show', {'id': post.id}) }}">Pokaż</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="{{ path('app_post_edit', {'id': post.id}) }}">Edytuj</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4" class="text-center text-muted">Brak rekordów</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

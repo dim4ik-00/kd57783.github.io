@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Post{% endblock %}
+{% block title %}Nowy post{% endblock %}
 
 {% block body %}
-    <h1>Create new Post</h1>
+    <h1 class="page-heading">Dodaj post</h1>
 
-    {{ include('post/_form.html.twig') }}
+    <div class="bg-white border rounded shadow-sm p-3">
+        {{ include('post/_form.html.twig', {'button_label': 'Zapisz'}) }}
+    </div>
 
-    <a href="{{ path('app_post_index') }}">back to list</a>
+    <a class="btn btn-outline-secondary mt-3" href="{{ path('app_post_index') }}">Powrót do listy</a>
 {% endblock %}

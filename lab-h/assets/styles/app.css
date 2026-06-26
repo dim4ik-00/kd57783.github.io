@@ -1,3 +1,54 @@
-body {
-    background-color: skyblue;
+:root {
+    --brand-red: #c62828;
+    --brand-red-dark: #8e0000;
+    --table-head: #ffcdd2;
+}
+
+.site-body {
+    background: #fafafa;
+}
+
+.site-navbar {
+    background: var(--brand-red);
+}
+
+.site-footer {
+    background: var(--brand-red);
+}
+
+.page-heading {
+    color: var(--brand-red);
+    font-weight: 700;
+}
+
+.post-table thead th {
+    background: var(--table-head);
+    color: #212529;
+    border-bottom: 2px solid #ef9a9a;
+}
+
+.btn-brand {
+    background: var(--brand-red);
+    border-color: var(--brand-red);
+    color: #fff;
+}
+
+.btn-brand:hover {
+    background: var(--brand-red-dark);
+    border-color: var(--brand-red-dark);
+    color: #fff;
+}
+
+.detail-table th {
+    background: #fce4ec;
+    width: 30%;
+}
+
+@media (max-width: 767.98px) {
+    .post-table td:nth-child(3) {
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
