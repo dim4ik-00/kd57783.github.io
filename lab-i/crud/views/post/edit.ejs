@@ -1,0 +1,17 @@
+<h1>Edytuj post</h1>
+
+<form method="post" action="/users/edit/<%= post.id %>">
+    <p>
+        Tytuł:<br>
+        <input type="text" name="subject" value="<%= post.subject %>">
+    </p>
+
+    <p>
+        Treść:<br>
+        <textarea name="content"><%= post.content %></textarea>
+    </p>
+
+    <button type="submit">Zapisz zmiany</button>
+</form>
+
+<a href="/users">Powrót</a>

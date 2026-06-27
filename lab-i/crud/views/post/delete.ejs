@@ -1,0 +1,9 @@
+<h1>Usuń post</h1>
+
+<p>Czy na pewno usunąć: <b><%= post.subject %></b> ?</p>
+
+<form method="post" action="/users/delete/<%= post.id %>">
+    <button type="submit">Usuń</button>
+</form>
+
+<a href="/users">Anuluj</a>
